@@ -14,6 +14,7 @@ try:
 except ImportError as e:
     st.error(f"Ошибка импорта модуля загрузки модели: {str(e)}")
     st.info(f"Путь поиска: {streamlit_model_path}")
+    st.info("Убедитесь, что все зависимости установлены из requirements.txt")
     st.stop()
 
 # Настройка страницы
