@@ -50,7 +50,9 @@ data/*.xlsx
 # *.joblib
 
 # Streamlit
-.streamlit/
+# .streamlit/config.toml нужен для деплоя, не игнорируем
+.streamlit/cache/
+.streamlit/secrets.toml
 
 # Temporary files
 *.tmp
