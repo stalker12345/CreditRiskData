@@ -6,8 +6,15 @@ import os
 from pathlib import Path
 
 # Добавляем путь к модулю загрузки модели
-sys.path.insert(0, str(Path(__file__).parent / "streamlit_model"))
-from load_model import load_model, load_metadata, load_metrics, load_boxcox_params, predict_risk
+streamlit_model_path = Path(__file__).parent / "streamlit_model"
+sys.path.insert(0, str(streamlit_model_path))
+
+try:
+    from load_model import load_model, load_metadata, load_metrics, load_boxcox_params, predict_risk
+except ImportError as e:
+    st.error(f"Ошибка импорта модуля загрузки модели: {str(e)}")
+    st.info(f"Путь поиска: {streamlit_model_path}")
+    st.stop()
 
 # Настройка страницы
 st.set_page_config(
